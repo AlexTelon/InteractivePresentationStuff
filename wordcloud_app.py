@@ -29,6 +29,7 @@ if text:
         height=400,
         background_color='white',
         collocations=False,
+        random_state=42
     ).generate(text)
 
     # Display the word cloud
