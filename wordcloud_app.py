@@ -1,4 +1,3 @@
-# wordcloud_app.py
 import streamlit as st
 from tinydb import TinyDB, Query
 from wordcloud import WordCloud
@@ -17,10 +16,7 @@ else:
     st.error("No active question set.")
     st.stop()
 
-st.title("Live Word Cloud")
-
-# Display the active question
-st.header(active_question)
+st.title(active_question)
 
 # Fetch responses for the active question
 responses = responses_table.search(Query().question == active_question)
@@ -43,5 +39,5 @@ else:
     st.write("No responses yet.")
 
 import time
-time.sleep(1)
+time.sleep(2)
 st.rerun()
