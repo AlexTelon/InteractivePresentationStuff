@@ -23,17 +23,10 @@ st.title("Live Word Cloud")
 st.header(active_question)
 
 # Auto-refresh using JavaScript
-refresh_rate = 5000  # Refresh every 5000 milliseconds (5 seconds)
+refresh_interval = 5  # Refresh interval in seconds
 st.markdown(
     f"""
-    <script>
-    function refreshPage() {{
-        setTimeout(function() {{
-            window.location.reload();
-        }}, {refresh_rate});
-    }}
-    window.onload = refreshPage;
-    </script>
+    <meta http-equiv="refresh" content="{refresh_interval}">
     """,
     unsafe_allow_html=True
 )
