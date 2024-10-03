@@ -22,15 +22,6 @@ st.title("Live Word Cloud")
 # Display the active question
 st.header(active_question)
 
-# Auto-refresh using JavaScript
-refresh_interval = 5  # Refresh interval in seconds
-st.markdown(
-    f"""
-    <meta http-equiv="refresh" content="{refresh_interval}">
-    """,
-    unsafe_allow_html=True
-)
-
 # Fetch responses for the active question
 responses = responses_table.search(Query().question == active_question)
 text = ' '.join([r['response'] for r in responses])
@@ -50,3 +41,7 @@ if text:
     st.pyplot(plt)
 else:
     st.write("No responses yet.")
+
+import time
+time.sleep(1)
+st.rerun()
